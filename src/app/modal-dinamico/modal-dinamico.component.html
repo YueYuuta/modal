@@ -1,0 +1,27 @@
+<div class="modal-header">
+    <h4 class="modal-title pull-left">{{titulo}}</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<!-- [formGroup]="Form" (ngSubmit)="guardar($event)"-->
+<form [formGroup]="Form" (ngSubmit)="guardar($event)" novalidate>
+    <div class=" modal-body">
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <input type="email" formControlName="usuario" class="form-control" id="exampleInputEmail1"
+                aria-describedby="emailHelp">
+            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" class="form-control" formControlName="contrasena" id="exampleInputPassword1">
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="cancelar()">Cencelar</button>
+        <button type="submit" [disabled]="Form.invalid" class="btn btn-outline-primary">{{titulo}}</button>
+    </div>
+</form>
+
+<!-- </form> -->
